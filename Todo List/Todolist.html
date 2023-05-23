@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       /* #Tododiv{
+            margin-top: 50px;
+            background-color: skyblue;
+            display: grid; 
+            grid-template-rows: 1fr;
+        }*/
+
+        p{
+            display:inline;
+        }
+        li:hover {
+      cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <label id="inputtodo">
+        <input id="myinput" type="text" placeholder="Add a tast to the Todo List">
+        <input id="dateinput" type="datetime-local">
+        <button id="buttoninput">Add the task To the list</button>
+    </label>
+    <h3>Todo</h3>
+    <div id="Tododiv"> 
+        <ol id="thelistol">
+            <li>
+            <p>France</p>  <!--button>Remove</button> <button>edit</button--> <input type="checkbox"> 
+            </li>
+        </ol>
+    </div>
+
+    <h3>Done</h3>
+
+    <script>
+        const elementInput = document.getElementById('myinput');
+        const submitButton = document.getElementById('buttoninput');
+        const olElement = document.getElementById('thelistol');
+
+        
+        submitButton.addEventListener('click', function () {
+
+            if (elementInput.value===''){
+            return;
+        }
+        else{
+            const newLiElement = document.createElement('li');
+            olElement.appendChild(newLiElement);
+
+        const newPInsideLi = document.createElement('p');
+        newPInsideLi.innerText = elementInput.value;
+        newLiElement.appendChild(newPInsideLi);
+        newPInsideLi.setAttribute('id', 'paragraphe');
+
+        /*const editButton= document.createElement('button');
+        editButton.setAttribute('id', 'editButton');
+        newLiElement.appendChild(editButton);
+        editButton.innerText='Edit';*/
+
+        const newInputInsideLi = document.createElement('input');
+        newInputInsideLi.setAttribute('type', 'checkbox');
+        newLiElement.appendChild(newInputInsideLi);
+
+        elementInput.value='';
+        };
+        });
+
+        newLiElement.addEventListener('click', function(){
+        newLiElement.style.cursor= 'pointer';})
+        newLiElement.addEventListener('mouseover', function() {
+        newLiElement.style.cursor = 'pointer';});
+        newPInsideLi.addEventListener('mouseover', function() {
+        newPInsideLi.style.cursor = 'pointer';});
+  </script>
+</body>
+</html>

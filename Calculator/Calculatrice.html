@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="inputfield">
+
+    <button name="numberButton">1</button>
+    <button name="numberButton">2</button>
+    <button name="numberButton">3</button>
+    <button name="numberButton">4</button>
+    <button name="numberButton">5</button>
+    <button name="numberButton">6</button>
+    <button name="numberButton">7</button>
+    <button name="numberButton">8</button>
+    <button name="numberButton">9</button>
+    <button name="numberButton">0</button>
+    <button name="numberButton">.</button>
+    <button name="numberButton">+</button>
+    <button name="numberButton">-</button>
+    <button name="numberButton">*</button>
+    <button name="numberButton">/</button>
+    <button name="numberButton">&#40;</button>
+    <button name="numberButton">&#41;</button>
+            <p id="output"></p>
+        <br>
+        <button class="diviseur">D/</button>
+        <button class="multiplicateur">Mx</button>
+
+        <button id="egalButton">=</button>
+        <button id="removebutton">Rb</button>
+        <button id="romoveallbutton">RA</button>
+    <script>
+const inputField = document.getElementById('inputfield');
+inputField.addEventListener('input', function(event) {
+  const newInput = event.target.value;
+  const inputNewValue = newInput.replace(/[^0-9+*/.()-]/g, '');
+
+  if (newInput !== inputNewValue) {
+    inputField.value = inputNewValue;
+  }
+});
+
+
+const buttons = document.getElementsByName('numberButton');
+for (let d = 0; d < buttons.length; d++) {
+  buttons[d].addEventListener('click', function() {
+    inputField.value = inputField.value === '0' ? buttons[d].innerText : inputField.value + buttons[d].innerText;
+  });
+}
+
+const removeButtonOne = document.getElementById('removebutton');
+removeButtonOne.addEventListener('click', function() {
+  const newInput = inputField.value;
+  const inputNewValue = newInput.slice(0, -1);
+  inputField.value = inputNewValue;
+});
+
+const removeAll = document.getElementById('romoveallbutton');
+removeAll.addEventListener('click', function() {
+  inputField.value = '0';
+});
+
+const egalButton = document.getElementById('egalButton');
+const output = document.getElementById('output');
+let clickCount = 0;
+
+egalButton.addEventListener('click', function() {
+  const input = inputField.value;
+  const hasConsecutiveOperators = /[+\-*/]{2,}/.test(input);
+  const doubleDot = /[.]{2,}/.test(input);
+  const paranthese = /[()]{2,}/;
+  const numberOper = /[9-0.()]/; // if the number are followed by a dot or an operator or parentheses
+  const regex = new RegExp(
+    hasConsecutiveOperators.source + '|' + doubleDot.source + '|' + paranthese.source + '|' + numberOper.source,
+    'g'
+  );
+  const modifiedInput = input.replace(regex, '');
+
+  if (modifiedInput !== input) {
+    // Display syntax error message for invalid input
+    inputField.value = 'Syntax Error';
+    inputField.classList.add('error');
+  } else {
+    // Evaluate the expression and update the output
+    const myInput = eval(input);
+    output.innerText = myInput;
+
+    if (clickCount === 1) {
+      // Show the output in the input field on the second click
+      inputField.value = output.innerText;
+    }
+
+    clickCount++;
+  }
+});
+
+
+
+
+
+const diviseur= document.querySelector('diviseur');
+const multiplicateur= document.querySelector('multiplicateur');
+
+
+
+
+    </script>
+</body>
+</html>

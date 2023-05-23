@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"  href="calculator.css">
+    <script type="text/javascript" src="calculator.js"></script>
+
+</head>
+<body>
+    <input id="myinput" value="15 + 655 / 451">
+  
+    <script>
+      // Get the input element
+      const inputField = document.getElementById('myinput');
+  
+      // Add event listener to the input field
+      inputField.addEventListener('input', function() {
+        // Retrieve the input value
+        const expression = inputField.value;
+  
+        // Use regular expression to match the pattern: number / (+-)number
+        const regex = /(\d+)\s*\/\s*(\+?-?\d+)/;
+        const match = expression.match(regex);
+  
+        if (match) {
+          const numerator = parseInt(match[1], 10);
+          const denominator = parseInt(match[2], 10);
+  
+          if (!isNaN(numerator) && !isNaN(denominator)) {
+            const updatedNumerator = numerator / denominator;
+  
+            const updatedExpression = expression.replace(match[0], updatedNumerator);
+            inputField.value = updatedExpression;
+  
+            console.log(updatedExpression);
+          }
+        }
+      });
+      let mydid= Number;
+      console.log(mydiv);
+      // Trigger the input event to perform the initial calculation
+      inputField.dispatchEvent(new Event('input'));
+    </script>
+  </body>
+  </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+        width: 100vh;
+        border: 4px solid rgb(78, 77, 77);
+        border-spacing: 10px;
+        }
+        #clock {
+                font-size: 48px;
+                font-family: "Courier New", monospace;
+                text-align: center;
+            }
+        </style>
+     
+    </head>
+    <body>
+        <div id="clock"></div>
+    
+        <script src="script.js"></script>
+    
+
+    
+    <script>
+    var now = new Date();
+var currentYear = now.getFullYear();
+var currentMonth = now.getMonth();
+var currentDay = now.getDate();
+var currentHour = now.getHours();
+var currentMinute = now.getMinutes();
+var currentSecond = now.getSeconds();
+
+
+console.log(now);
+console.log(currentDay);
+    </script>
+</body>
+</html>

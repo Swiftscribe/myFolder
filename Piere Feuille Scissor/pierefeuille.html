@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="pierrefeuille.js"> </script>
+    <link rel="stylesheet" href="ppaper.css">
+</head>
+<body>
+    <div class="stdiv">
+        <h1>Welcome To the Paper-Rock-Scissor Game</h1>
+        <img id="ensemble" src="rock-paper-scissors.png" alt="Rock-Scissor-Paper">
+    </div>
+    <div class="images" style="background-color: white;">
+        <h2>Choose to start the Game</h2>
+        <img id="paperImg" src="paper-plane.png" alt="Paper" style="background-color: skyblue;">
+        <img id="paperScissor" src="scissor.png"   alt="Scissor" style="background-color: gray;">
+        <img id="paperRock" src="fist.png" alt="Rock" style="background-color: burlywood;">
+    </div>
+    <div class="computer">
+        <button id="computermove">Computer Choose</button>
+        <h3 class="result"></h3>
+    </div>
+   
+    <section class="roundDiv">
+        <div class="round1">
+            <h4>Round 1</h4>
+            <div style="display:flex ;">
+                <label>Computer</label><input id="input1"><input><label>You</label></div>
+            <div style="display:flex ;">
+                <label>Computer</label><input id="input2"><input><label>You</label></div>
+            <div style="display:flex ;">
+                <label>Computer</label><input id="input3"><input><label>You</label></div>
+        </div>
+        
+        <!--div class="round2">
+            <h4>Round 2</h4>
+            <div style="display:flex ;"><label>Computer</label><input><input><label>You</label></div>
+            <div style="display:flex ;"><label>Computer</label><input><input><label>You</label></div>
+            <div style="display:flex ;"><label>Computer</label><input><input><label>You</label></div>
+        </div>
+        
+        <div class="round3">
+            <h4>Round 3</h4>
+            <div style="display:flex ;"><label>Computer</label><input><input><label>You</label></div>
+            <div style="display:flex ;"><label>Computer</label><input><input><label>You</label></div>
+            <div style="display:flex ;"><label>Computer</label><input><input><label>You</label></div>
+        </div-->
+    
+    </section>
+    <button id="StartingnewGame">New Game</button>
+    <table>
+            <thead>
+                <tr>
+                    <th>Score</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                <tr>
+                    <td>Win</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Loss</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Draw</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Win</td>
+                    <td></td>
+                </tr>
+            </tbody>
+    </table>
+
+    <button id="resetbutton">Reset Score</button>
+        
+<script>
+    const paperImage= document.getElementById('paperImg');
+const scissorImage= document.getElementById('paperScissor');
+const rockImage= document.getElementById('paperRock');
+
+const myinput1=document.getElementById('input1');
+const myinput2= document.getElementById('input2');
+const myinput3=document.getElementById('input3');
+
+paperImage.addEventListener('click', function() {
+    paperImage.style.border = '2px solid black';
+    paperImage.style.backgroundColor = 'yellow';
+});
+
+</script>
+</body>
+</html>
